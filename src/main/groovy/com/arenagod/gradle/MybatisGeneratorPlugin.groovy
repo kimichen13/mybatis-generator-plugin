@@ -12,14 +12,14 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
     void apply(ProjectInternal project) {
         project.logger.info "Configuring Mybatis Generator for project: $project.name"
         MybatisGeneratorTask task = project.tasks.create("mbGenerator", MybatisGeneratorTask);
-        project.configurations.create('mybatis').with {
+        project.configurations.create('mybatisGenerator').with {
             description = 'The cargo libraries to be used for this project.'
         }
         project.extensions.create("mybatisGenerator", MybatisGeneratorExtension)
 
         task.conventionMapping.with {
             mybatisGeneratorClasspath = {
-                def config = project.configurations.getByName('mybatisGenerator')
+                def config = project.configurations.getAt('mybatisGenerator')
                 if (config.dependencies.empty) {
                     project.dependencies {
                         mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.2'

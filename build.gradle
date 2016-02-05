@@ -14,7 +14,7 @@ plugins {
 }
 
 group 'com.arenagod.gradle'
-version '1.1'
+version '1.2'
 description "Mybatis Generator Plugin"
 
 apply plugin: 'groovy'

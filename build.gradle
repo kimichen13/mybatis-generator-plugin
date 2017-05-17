@@ -15,7 +15,7 @@ plugins {
 
 group 'com.arenagod.gradle'
 version '1.4'
-description "Mybatis Generator Plugin"
+description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
 apply plugin: "com.gradle.plugin-publish"

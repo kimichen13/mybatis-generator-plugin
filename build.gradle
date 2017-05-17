@@ -14,7 +14,7 @@ plugins {
 }
 
 group 'com.arenagod.gradle'
-version '1.3'
+version '1.4'
 description "Mybatis Generator Plugin"
 
 apply plugin: 'groovy'
@@ -32,15 +32,15 @@ dependencies {
 }
 
 pluginBundle {
-    website = 'https://github.com/liebe444ever/mybatis-generator-plugin.git'
-    vcsUrl = 'https://github.com/liebe444ever/mybatis-generator-plugin.git'
+    website = 'https://github.com/kimichen13/mybatis-generator-plugin.git'
+    vcsUrl = 'https://github.com/kimichen13/mybatis-generator-plugin.git'
     description = "${project.description}"
     tags = ['mybatis', 'generator']
 
     plugins {
         MybatisGenerator {
             id = 'com.arenagod.gradle.MybatisGenerator'
-            displayName = 'Mybatis Generator Plugin'
+            displayName = 'Mybatis Gradle Generator Plugin'
         }
     }
 }

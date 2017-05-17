@@ -1,7 +1,7 @@
 Mybatis Generator Plugin
 ======================================
 
-[![Build Status](https://travis-ci.org/liebe444ever/mybatis-generator-plugin.svg?branch=master)](https://travis-ci.org/liebe444ever/mybatis-generator-plugin)
+[![Build Status](https://travis-ci.org/kimichen13/mybatis-generator-plugin.svg?branch=master)](https://travis-ci.org/kimichen13/mybatis-generator-plugin)
 
 ## Usage 
 

@@ -15,7 +15,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.3"
+    classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
   }
 }
 

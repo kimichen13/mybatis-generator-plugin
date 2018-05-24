@@ -18,6 +18,7 @@ version '1.4'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
+apply plugin: 'idea'
 apply plugin: "com.gradle.plugin-publish"
 
 

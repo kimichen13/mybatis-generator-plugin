@@ -1,4 +1,4 @@
-package com.arenagod.gradle
+package com.thinkimi.gradle
 
 import groovy.transform.ToString
 

@@ -5,15 +5,15 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.3"
+        classpath "com.gradle.publish:plugin-publish-plugin:0.9.10"
     }
 }
 
 plugins {
-    id "com.gradle.plugin-publish" version "0.9.3"
+    id "com.gradle.plugin-publish" version "0.9.10"
 }
 
-group 'com.arenagod.gradle'
+group 'com.thinkimi.gradle'
 version '1.4'
 description "Mybatis Gradle Generator Plugin"
 
@@ -39,7 +39,7 @@ pluginBundle {
 
     plugins {
         MybatisGenerator {
-            id = 'com.arenagod.gradle.MybatisGenerator'
+            id = 'com.thinkimi.gradle.MybatisGenerator'
             displayName = 'Mybatis Gradle Generator Plugin'
         }
     }

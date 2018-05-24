@@ -15,11 +15,11 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.arenagod.gradle:mybatis-generator-plugin:1.4"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:1.4"
   }
 }
 
-apply plugin: "com.arenagod.gradle.MybatisGenerator"
+apply plugin: "com.thinkimi.gradle.MybatisGenerator"
 
 configurations {
     mybatisGenerator

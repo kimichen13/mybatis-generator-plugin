@@ -1,4 +1,4 @@
-package com.arenagod.gradle
+package com.thinkimi.gradle
 
 import org.gradle.api.file.FileCollection
 import org.gradle.api.internal.ConventionTask

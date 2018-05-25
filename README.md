@@ -1,7 +1,13 @@
 Mybatis Generator Plugin
 ======================================
 
-[![Build Status](https://travis-ci.org/kimichen13/mybatis-generator-plugin.svg?branch=master)](https://travis-ci.org/kimichen13/mybatis-generator-plugin)
+
+[![Travis](https://img.shields.io/travis/kimichen13/mybatis-generator-plugin.svg)](https://travis-ci.org/kimichen13/mybatis-generator-plugin)
+[![GitHub stars](https://img.shields.io/github/stars/kimichen13/mybatis-generator-plugin.svg)](https://github.com/kimichen13/mybatis-generator-plugin/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/kimichen13/mybatis-generator-plugin.svg)](https://github.com/kimichen13/mybatis-generator-plugin/network)
+[![GitHub license](https://img.shields.io/github/license/kimichen13/mybatis-generator-plugin.svg)](https://github.com/kimichen13/mybatis-generator-plugin/blob/master/LICENSE)
+
+
 
 ## Usage 
 

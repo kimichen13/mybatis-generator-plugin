@@ -21,7 +21,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:1.4"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.0"
   }
 }
 

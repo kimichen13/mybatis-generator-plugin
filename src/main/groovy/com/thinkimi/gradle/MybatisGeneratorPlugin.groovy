@@ -22,9 +22,9 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
                 def config = project.configurations.getAt('mybatisGenerator')
                 if (config.dependencies.empty) {
                     project.dependencies {
-                        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.5'
-                        mybatisGenerator 'mysql:mysql-connector-java:5.1.36'
-                        mybatisGenerator 'tk.mybatis:mapper:3.3.2'
+                        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+                        mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
+                        mybatisGenerator 'org.postgresql:postgresql:42.2.6'
                     }
                 }
                 config

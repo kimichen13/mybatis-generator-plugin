@@ -36,3 +36,8 @@ mybatisGenerator {
     configFile = 'src/main/resources/autogen/generatorConfig.xml'
 }
 ```
+
+## Test
+
+1. Use ```docker-compose up -d``` to start the db service.
+2. Run gradle ```mbGenerator```, then check the related files defined in ```mybatisGeneator/configFile```.

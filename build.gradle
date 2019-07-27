@@ -49,7 +49,9 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
+    testCompile 'org.mybatis:mybatis:3.5.2'
 }
+
 
 pluginBundle {
     website = 'https://github.com/kimichen13/mybatis-generator-plugin.git'

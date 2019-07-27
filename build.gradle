@@ -5,22 +5,35 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.10"
+        classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
+        //this is for test
+        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1"
+        //end for test
     }
 }
 
 plugins {
-    id "com.gradle.plugin-publish" version "0.9.10"
+    id "com.gradle.plugin-publish" version "0.10.1"
 }
 
 group 'com.thinkimi.gradle'
-version '2.0'
+version '2.1'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: "com.gradle.plugin-publish"
+// this is for test
+apply plugin: "com.thinkimi.gradle.MybatisGenerator"
 
+configurations {
+    mybatisGenerator
+}
+mybatisGenerator {
+    verbose = true
+    configFile = 'src/test/resources/autogen/generatorConfig.xml'
+}
+// end for test
 
 repositories {
     mavenCentral()
@@ -30,7 +43,9 @@ repositories {
 dependencies {
     compile gradleApi()
     compile localGroovy()
+    testCompile 'org.mybatis:mybatis:3.5.2'
 }
+
 
 pluginBundle {
     website = 'https://github.com/kimichen13/mybatis-generator-plugin.git'

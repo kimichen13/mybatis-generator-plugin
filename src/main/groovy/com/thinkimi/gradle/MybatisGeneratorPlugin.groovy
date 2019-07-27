@@ -19,7 +19,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
 
         task.conventionMapping.with {
             mybatisGeneratorClasspath = {
-                def config = project.configurations.getAt('mybatisGenerator')
+                def config = project.configurations['mybatisGenerator']
                 if (config.dependencies.empty) {
                     project.dependencies {
                         mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'

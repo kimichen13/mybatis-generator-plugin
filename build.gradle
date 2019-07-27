@@ -5,19 +5,19 @@ buildscript {
         }
     }
     dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.9.10"
+        classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
         //this is for test
-        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.0"
+        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1"
         //end for test
     }
 }
 
 plugins {
-    id "com.gradle.plugin-publish" version "0.9.10"
+    id "com.gradle.plugin-publish" version "0.10.1"
 }
 
 group 'com.thinkimi.gradle'
-version '2.0'
+version '2.1'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
@@ -32,12 +32,6 @@ configurations {
 mybatisGenerator {
     verbose = true
     configFile = 'src/test/resources/autogen/generatorConfig.xml'
-
-    dependencies {
-        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
-        mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
-        mybatisGenerator 'org.postgresql:postgresql:42.2.6'
-    }
 }
 // end for test
 

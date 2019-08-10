@@ -10,6 +10,11 @@ import org.gradle.api.tasks.TaskAction
  */
 class MybatisGeneratorTask extends ConventionTask {
 
+    MybatisGeneratorTask(){
+        description = 'Mybatis Generator Task'
+        group = 'Util'
+    }
+
     def overwrite
     def configFile
     def verbose

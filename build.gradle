@@ -7,7 +7,7 @@ buildscript {
     dependencies {
         classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
         //this is for test
-        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1"
+        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1.1"
         //end for test
     }
 }
@@ -17,7 +17,7 @@ plugins {
 }
 
 group 'com.thinkimi.gradle'
-version '2.1'
+version '2.1.1'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'

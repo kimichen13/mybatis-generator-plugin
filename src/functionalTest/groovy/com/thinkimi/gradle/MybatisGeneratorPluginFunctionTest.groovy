@@ -1,5 +1,3 @@
-package com.thinkimi.gradle
-
 import org.gradle.testkit.runner.GradleRunner
 import org.testcontainers.containers.DockerComposeContainer
 import spock.lang.Specification
@@ -55,7 +53,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
                 
                 // optional, here is the override dependencies for the plugin or you can add other database dependencies.
                 dependencies {
-                    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+                    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
                     mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
                     mybatisGenerator 'org.postgresql:postgresql:42.2.6'
                     mybatisGenerator  // Here add your mariadb dependencies or else
@@ -69,7 +67,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
         runner.withPluginClasspath()
         runner.withArguments("mbGenerator")
         runner.withProjectDir(projectDir)
-        def result = runner.build()
+        runner.build()
 
         then:
         new File(projectDir, "src/main/java/com/thinkimi/gradle/dao/CustomerMapper.java").exists()

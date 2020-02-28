@@ -57,7 +57,7 @@ mybatisGenerator {
     
     // optional, here is the override dependencies for the plugin or you can add other database dependencies.
     dependencies {
-        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
         mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
         mybatisGenerator 'org.postgresql:postgresql:42.2.6'
         mybatisGenerator  // Here add your mariadb dependencies or else

@@ -11,7 +11,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
     @Override
     void apply(ProjectInternal project) {
         project.logger.info "Configuring Mybatis Generator for project: $project.name"
-        MybatisGeneratorTask task = project.tasks.register("mbGenerator", MybatisGeneratorTask.class).get();
+        MybatisGeneratorTask task = project.tasks.register("mbGenerator", MybatisGeneratorTask.class).get()
         project.configurations.create('mybatisGenerator').with {
             description = 'The cargo libraries to be used for this project.'
         }
@@ -22,7 +22,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
                 def config = project.configurations['mybatisGenerator']
                 if (config.dependencies.empty) {
                     project.dependencies {
-                        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+                        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
                         mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
                         mybatisGenerator 'org.postgresql:postgresql:42.2.6'
                     }
@@ -33,6 +33,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
             configFile = { project.mybatisGenerator.configFile }
             verbose = { project.mybatisGenerator.verbose }
             targetDir = { project.mybatisGenerator.targetDir }
+            mybatisProperties = {project.mybatisGenerator.mybatisProperties}
         }
     }
 

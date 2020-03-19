@@ -1,15 +1,11 @@
-version: '3.7'
+version: '2.0'
 
 services:
   db:
-    container_name: postgresql
     image: postgres:11.4-alpine
     restart: always
     ports:
-      - "5432:5432"
-    networks:
-      mynet:
-        ipv4_address: 172.20.0.2
+      - "5435:5432"
     volumes:
       - pg_data:/var/lib/postgresql/data
       - ./initdb.d:/docker-entrypoint-initdb.d
@@ -18,12 +14,6 @@ services:
       POSTGRES_DB: postgres
       POSTGRES_PASSWORD: 123456
 
-networks:
-  mynet:
-    name: mynet
-    ipam:
-      config:
-        - subnet: 172.20.0.0/16
 
 volumes:
   pg_data:

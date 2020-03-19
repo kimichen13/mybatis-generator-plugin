@@ -11,7 +11,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
     @Override
     void apply(ProjectInternal project) {
         project.logger.info "Configuring Mybatis Generator for project: $project.name"
-        MybatisGeneratorTask task = project.tasks.create("mbGenerator", MybatisGeneratorTask);
+        MybatisGeneratorTask task = project.tasks.register("mbGenerator", MybatisGeneratorTask.class).get();
         project.configurations.create('mybatisGenerator').with {
             description = 'The cargo libraries to be used for this project.'
         }

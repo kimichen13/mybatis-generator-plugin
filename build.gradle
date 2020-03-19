@@ -6,34 +6,22 @@ buildscript {
     }
     dependencies {
         classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
-        //this is for test
-        classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1.2"
-        //end for test
     }
 }
 
 plugins {
     id "com.gradle.plugin-publish" version "0.10.1"
+    id 'java-gradle-plugin'
+    id 'groovy'
 }
 
 group 'com.thinkimi.gradle'
-version '2.1.2'
+version '2.2'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
 apply plugin: 'idea'
 apply plugin: "com.gradle.plugin-publish"
-// this is for test
-apply plugin: "com.thinkimi.gradle.MybatisGenerator"
-
-configurations {
-    mybatisGenerator
-}
-mybatisGenerator {
-    verbose = true
-    configFile = 'src/test/resources/autogen/generatorConfig.xml'
-}
-// end for test
 
 repositories {
     mavenCentral()
@@ -44,6 +32,37 @@ dependencies {
     compile gradleApi()
     compile localGroovy()
     testCompile 'org.mybatis:mybatis:3.5.2'
+    testCompile "org.testcontainers:spock:1.13.0"
+    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
+}
+
+gradlePlugin {
+    // Define the plugin
+    plugins {
+        mbGenerator {
+            id = 'com.thinkimi.gradle.MybatisGenerator'
+            implementationClass = 'com.thinkimi.gradle.MybatisGeneratorPlugin'
+        }
+    }
+}
+
+sourceSets {
+    functionalTest {
+    }
+}
+
+gradlePlugin.testSourceSets(sourceSets.functionalTest)
+configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
+
+// Add a task to run the functional tests
+task functionalTest(type: Test) {
+    testClassesDirs = sourceSets.functionalTest.output.classesDirs
+    classpath = sourceSets.functionalTest.runtimeClasspath
+}
+
+check {
+    // Run the functional tests as part of `check`
+    dependsOn(tasks.functionalTest)
 }
 
 

@@ -16,21 +16,21 @@
 
         <jdbcConnection
                 driverClass="org.postgresql.Driver"
-                connectionURL="jdbc:postgresql://localhost:5432/postgres"
+                connectionURL="jdbc:postgresql://localhost:5435/postgres"
                 userId="thinkimi"
                 password="123456">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.thinkimi.gradle.model" targetProject="src/test/groovy">
+        <javaModelGenerator targetPackage="com.thinkimi.gradle.model" targetProject="build/functionalTest/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/test/resources/">
+        <sqlMapGenerator targetPackage="mapper" targetProject="build/functionalTest/src/main/resources/">
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.thinkimi.gradle.dao" type="XMLMAPPER" targetProject="src/test/groovy">
+        <javaClientGenerator targetPackage="com.thinkimi.gradle.dao" type="XMLMAPPER" targetProject="build/functionalTest/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

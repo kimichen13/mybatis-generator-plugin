@@ -24,7 +24,7 @@ In your ```build.gradle``` file, add following plugin in two ways:
 
 ``` groovy
 plugins {
-  id "com.thinkimi.gradle.MybatisGenerator" version "2.1.2"
+  id "com.thinkimi.gradle.MybatisGenerator" version "2.2"
 }
 ```
 
@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.1.2"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.2"
   }
 }
 
@@ -67,5 +67,4 @@ mybatisGenerator {
 
 ## Test
 
-1. Use ```docker-compose up -d``` to start the db service.
-2. Run gradle ```mbGenerator```, then check the related files defined in ```mybatisGenerator/configFile```.
+Use [Spock Framework](http://spockframework.org/spock/docs/1.3/all_in_one.html#_spock_example_project "Spock Framework") to test, just run ```./gradlew clean check```.

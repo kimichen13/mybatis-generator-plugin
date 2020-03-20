@@ -1,14 +1,3 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.gradle.publish:plugin-publish-plugin:0.10.1"
-    }
-}
-
 plugins {
     id "com.gradle.plugin-publish" version "0.10.1"
     id 'java-gradle-plugin'
@@ -39,7 +28,7 @@ dependencies {
 gradlePlugin {
     // Define the plugin
     plugins {
-        mbGenerator {
+        MybatisGenerator {
             id = 'com.thinkimi.gradle.MybatisGenerator'
             implementationClass = 'com.thinkimi.gradle.MybatisGeneratorPlugin'
         }
@@ -74,7 +63,6 @@ pluginBundle {
 
     plugins {
         MybatisGenerator {
-            id = 'com.thinkimi.gradle.MybatisGenerator'
             displayName = 'Mybatis Gradle Generator Plugin'
         }
     }

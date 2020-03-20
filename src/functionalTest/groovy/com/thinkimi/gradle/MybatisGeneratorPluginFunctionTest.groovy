@@ -1,6 +1,5 @@
 package com.thinkimi.gradle
 
-
 import org.gradle.testkit.runner.GradleRunner
 import org.testcontainers.containers.DockerComposeContainer
 import spock.lang.Specification
@@ -20,7 +19,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
         container.stop()
     }
 
-    def "can run task"() {
+    def "mybatis generator task"() {
         given:
         def config = new File("src/functionalTest/resources/autogen/generatorConfig.xml")
 

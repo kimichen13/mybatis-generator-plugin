@@ -7,7 +7,7 @@ import spock.lang.Specification
  * @author Kimi Chen
  * @since 2020/3/19, Thu
  * */
-public class MybatisGeneratorPluginTest extends Specification {
+class MybatisGeneratorPluginTest extends Specification {
     def "plugin registers task"() {
         given:
         def project = ProjectBuilder.builder().build()

@@ -21,7 +21,7 @@ dependencies {
     compile gradleApi()
     compile localGroovy()
     testCompile 'org.mybatis:mybatis:3.5.2'
-    testCompile "org.testcontainers:spock:1.13.0"
+    testCompile "org.testcontainers:spock:1.15.3"
     testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
 }
 

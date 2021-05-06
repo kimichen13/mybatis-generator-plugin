@@ -7,12 +7,13 @@ import spock.lang.Specification
 /**
  *
  * @author Kimi Chen
- * @since 2020/3/19, Thu  *  */
+ * @since 2020/3/19, Thu  *     */
 class MybatisGeneratorPluginFunctionTest extends Specification {
-    DockerComposeContainer container
+
+    private DockerComposeContainer container
+
     void setup() {
         container = new DockerComposeContainer<>(new File("src/functionalTest/docker-compose.yaml"))
-        container.start()
     }
 
     void cleanup() {
@@ -42,7 +43,6 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
 
             repositories {
                 mavenCentral()
-                jcenter()
             }
             
             configurations {

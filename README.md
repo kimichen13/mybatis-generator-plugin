@@ -55,7 +55,7 @@ mybatisGenerator {
     verbose = true
     configFile = 'src/main/resources/autogen/generatorConfig.xml'
 
-    // optional, you can reference these parameters in the configration file, using the `${PARAM_NAME}` notation.
+    // optional, you can reference these parameters in the configuration file, using the `${PARAM_NAME}` notation.
     parameters username: 'example', password: '123456'
 
     // optional, here is the override dependencies for the plugin or you can add other database dependencies.

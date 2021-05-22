@@ -11,7 +11,6 @@ class MybatisGeneratorExtension {
     def overwrite = true
     def configFile = "generatorConfig.xml"
     def verbose = false
-    def targetDir = "."
     def parameters = [:]
 
 }

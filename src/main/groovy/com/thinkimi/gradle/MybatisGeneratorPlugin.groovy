@@ -32,7 +32,6 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
             overwrite = { project.mybatisGenerator.overwrite }
             configFile = { project.mybatisGenerator.configFile }
             verbose = { project.mybatisGenerator.verbose }
-            targetDir = { project.mybatisGenerator.targetDir }
             parameters = { project.mybatisGenerator.parameters }
         }
     }

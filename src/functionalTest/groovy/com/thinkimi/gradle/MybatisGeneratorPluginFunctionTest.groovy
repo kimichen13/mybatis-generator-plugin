@@ -44,7 +44,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
             repositories {
                 mavenCentral()
             }
-            
+
             configurations {
                 mybatisGenerator
             }
@@ -52,7 +52,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
             mybatisGenerator {
                 verbose = true
                 configFile = 'build/functionalTest/src/main/resources/autogen/generatorConfig.xml'
-                
+                parameters username: 'thinkimi', password: '123456'
                 // optional, here is the override dependencies for the plugin or you can add other database dependencies.
                 dependencies {
                     mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'

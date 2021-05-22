@@ -33,6 +33,7 @@ class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
             configFile = { project.mybatisGenerator.configFile }
             verbose = { project.mybatisGenerator.verbose }
             targetDir = { project.mybatisGenerator.targetDir }
+            parameters = { project.mybatisGenerator.parameters }
         }
     }
 

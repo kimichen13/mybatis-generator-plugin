@@ -54,6 +54,7 @@ configurations {
 mybatisGenerator {
     verbose = true
     configFile = 'src/main/resources/autogen/generatorConfig.xml'
+    mybatisProperties = ['key1' : "value1",'key2' : "value2"]
     
     // optional, here is the override dependencies for the plugin or you can add other database dependencies.
     dependencies {
@@ -64,6 +65,31 @@ mybatisGenerator {
     }
 }
 ```
+
+## Properties support in `generatorConfig.xml`
+
+Properties set under `mybatisProperties` can be referenced with placeholder syntax in the `configFile`.
+
+```groovy
+        mybatisProperties = ['jdbcUrl'        : 'jdbc:postgresql:.....',
+                             'jdbcDriverClass': 'org.postgresql.Driver',
+                             'jdbcUsername'   : '...',
+                             'jdbcPassword'   : '...',
+        ]
+
+```
+
+```xml
+
+<!-- generatorConfig.xml -->
+
+<!-- reference the parameters by using ${...} -->
+<jdbcConnection driverClass="${jdbDriverClass}"
+connectionURL="${jdbcUrl}"
+userId="${jdbcUsername}"
+...
+```
+
 
 ## Test
 

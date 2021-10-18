@@ -2,21 +2,24 @@ package com.thinkimi.gradle
 
 import org.gradle.testkit.runner.GradleRunner
 import org.testcontainers.containers.DockerComposeContainer
+import org.testcontainers.spock.Testcontainers
 import spock.lang.Specification
 
 /**
  *
  * @author Kimi Chen
  * @since 2020/3/19, Thu  *     */
+@Testcontainers
 class MybatisGeneratorPluginFunctionTest extends Specification {
 
-    private DockerComposeContainer container
+    private static DockerComposeContainer container
 
-    void setup() {
+    static {
         container = new DockerComposeContainer<>(new File("src/functionalTest/docker-compose.yaml"))
+        container.start()
     }
 
-    void cleanup() {
+    def cleanup() {
         container.stop()
     }
 
@@ -35,12 +38,11 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
 
         new File(projectDir, "settings.gradle") << ""
         new File(projectDir, "build.gradle") << """
-
             plugins {
                 id('com.thinkimi.gradle.MybatisGenerator')
                 id('java')
             }
-
+            
             repositories {
                 mavenCentral()
             }
@@ -48,18 +50,24 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
             configurations {
                 mybatisGenerator
             }
-
+            
             mybatisGenerator {
                 verbose = true
                 configFile = 'build/functionalTest/src/main/resources/autogen/generatorConfig.xml'
                 
                 // optional, here is the override dependencies for the plugin or you can add other database dependencies.
                 dependencies {
-                    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+                    mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
                     mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
                     mybatisGenerator 'org.postgresql:postgresql:42.2.6'
                     mybatisGenerator  // Here add your mariadb dependencies or else
                 }
+                
+                mybatisProperties = ['jdbcUrl'        : 'jdbc:postgresql://localhost:5435/postgres',
+                             'jdbcDriverClass': 'org.postgresql.Driver',
+                             'jdbcUsername'   : 'thinkimi',
+                             'jdbcPassword'   : '123456',
+                ]
             }
         """
 
@@ -69,7 +77,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
         runner.withPluginClasspath()
         runner.withArguments("mbGenerator")
         runner.withProjectDir(projectDir)
-        def result = runner.build()
+        runner.build()
 
         then:
         new File(projectDir, "src/main/java/com/thinkimi/gradle/dao/CustomerMapper.java").exists()

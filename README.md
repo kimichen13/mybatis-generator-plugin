@@ -24,7 +24,7 @@ In your ```build.gradle``` file, add following plugin in two ways:
 
 ``` groovy
 plugins {
-  id "com.thinkimi.gradle.MybatisGenerator" version "2.3"
+  id "com.thinkimi.gradle.MybatisGenerator" version "2.4"
 }
 ```
 
@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.3"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.4"
   }
 }
 
@@ -54,16 +54,44 @@ configurations {
 mybatisGenerator {
     verbose = true
     configFile = 'src/main/resources/autogen/generatorConfig.xml'
+    mybatisProperties = ['key1' : "value1",'key2' : "value2"]
     
     // optional, here is the override dependencies for the plugin or you can add other database dependencies.
     dependencies {
-        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.3.7'
+        mybatisGenerator 'org.mybatis.generator:mybatis-generator-core:1.4.0'
         mybatisGenerator 'mysql:mysql-connector-java:5.1.47'
         mybatisGenerator 'org.postgresql:postgresql:42.2.6'
         mybatisGenerator  // Here add your mariadb dependencies or else
     }
 }
 ```
+
+## Properties support in `generatorConfig.xml`
+
+Properties set under `mybatisProperties` can be referenced with placeholder syntax in the `configFile`.
+
+```groovy
+        mybatisProperties = ['jdbcUrl'        : 'jdbc:postgresql:.....',
+                             'jdbcDriverClass': 'org.postgresql.Driver',
+                             'jdbcUsername'   : '...',
+                             'jdbcPassword'   : '...',
+        ]
+
+```
+
+```xml
+
+<!-- generatorConfig.xml -->
+
+<!-- reference the parameters by using ${...} -->
+<jdbcConnection
+        driverClass="${jdbcDriverClass}"
+        connectionURL="${jdbcUrl}"
+        userId="${jdbcUsername}"
+        password="${jdbcPassword}">
+</jdbcConnection>
+```
+
 
 ## Test
 

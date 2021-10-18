@@ -15,10 +15,10 @@
         </commentGenerator>
 
         <jdbcConnection
-                driverClass="org.postgresql.Driver"
-                connectionURL="jdbc:postgresql://localhost:5435/postgres"
-                userId="thinkimi"
-                password="123456">
+                driverClass="${jdbcDriverClass}"
+                connectionURL="${jdbcUrl}"
+                userId="${jdbcUsername}"
+                password="${jdbcPassword}">
         </jdbcConnection>
 
         <javaModelGenerator targetPackage="com.thinkimi.gradle.model" targetProject="build/functionalTest/src/main/java">

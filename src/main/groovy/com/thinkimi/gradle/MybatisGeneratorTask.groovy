@@ -11,7 +11,7 @@ import org.gradle.api.tasks.TaskAction
  */
 class MybatisGeneratorTask extends ConventionTask {
 
-    MybatisGeneratorTask(){
+    MybatisGeneratorTask() {
         description = 'Mybatis Generator Task'
         group = 'Util'
     }
@@ -35,10 +35,16 @@ class MybatisGeneratorTask extends ConventionTask {
             ant.taskdef(name: 'mbgenerator', classname: 'org.mybatis.generator.ant.GeneratorAntTask')
 
             ant.properties['generated.source.dir'] = getTargetDir()
-            getMybatisProperties().each{key, val ->
-                ant.properties[key] = val
+            getMybatisProperties().each { key, val ->
+                ant.project.setProperty(key, val)
             }
-            ant.mbgenerator(overwrite: getOverwrite(), configfile: getConfigFile(), verbose: getVerbose())
+            ant.mbgenerator(overwrite: getOverwrite(), configfile: getConfigFile(), verbose: getVerbose()) {
+                propertyset {
+                    getMybatisProperties().each { key, val ->
+                        propertyref(name: key)
+                    }
+                }
+            }
         }
     }
 

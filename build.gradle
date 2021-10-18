@@ -19,9 +19,9 @@ repositories {
 dependencies {
     implementation gradleApi()
     implementation localGroovy()
-    testImplementation 'org.mybatis:mybatis:3.5.2'
-    testImplementation "org.testcontainers:spock:1.15.3"
-    testImplementation 'org.spockframework:spock-core:2.0-M5-groovy-3.0'
+    testImplementation 'org.mybatis:mybatis:3.5.7'
+    testImplementation 'org.testcontainers:spock:1.16.0'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
 }
 
 gradlePlugin {
@@ -46,7 +46,6 @@ configurations.functionalTestImplementation.extendsFrom(configurations.testImple
 task functionalTest(type: Test) {
     testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
-    dependsOn(tasks.clean)
 }
 
 tasks.withType(Test) {
@@ -56,7 +55,7 @@ tasks.withType(Test) {
 
 check {
     // Run the functional tests as part of `check`
-//    dependsOn(tasks.functionalTest)
+    dependsOn(tasks.functionalTest)
 }
 
 

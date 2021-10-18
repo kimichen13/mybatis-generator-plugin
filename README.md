@@ -24,7 +24,7 @@ In your ```build.gradle``` file, add following plugin in two ways:
 
 ``` groovy
 plugins {
-  id "com.thinkimi.gradle.MybatisGenerator" version "2.3"
+  id "com.thinkimi.gradle.MybatisGenerator" version "2.4"
 }
 ```
 
@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.3"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.4"
   }
 }
 
@@ -84,10 +84,12 @@ Properties set under `mybatisProperties` can be referenced with placeholder synt
 <!-- generatorConfig.xml -->
 
 <!-- reference the parameters by using ${...} -->
-<jdbcConnection driverClass="${jdbDriverClass}"
-connectionURL="${jdbcUrl}"
-userId="${jdbcUsername}"
-...
+<jdbcConnection
+        driverClass="${jdbcDriverClass}"
+        connectionURL="${jdbcUrl}"
+        userId="${jdbcUsername}"
+        password="${jdbcPassword}">
+</jdbcConnection>
 ```
 
 

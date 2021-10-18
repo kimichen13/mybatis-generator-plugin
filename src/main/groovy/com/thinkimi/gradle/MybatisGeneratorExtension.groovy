@@ -12,5 +12,6 @@ class MybatisGeneratorExtension {
     def configFile = "generatorConfig.xml"
     def verbose = false
     def targetDir = "."
+    def mybatisProperties = []
 
 }

@@ -25,6 +25,8 @@ class MybatisGeneratorTask extends ConventionTask {
     @Internal
     def targetDir
     @Internal
+    def mybatisProperties
+    @Internal
     FileCollection mybatisGeneratorClasspath
 
     @TaskAction
@@ -33,6 +35,9 @@ class MybatisGeneratorTask extends ConventionTask {
             ant.taskdef(name: 'mbgenerator', classname: 'org.mybatis.generator.ant.GeneratorAntTask')
 
             ant.properties['generated.source.dir'] = getTargetDir()
+            getMybatisProperties().each{key, val ->
+                ant.properties[key] = val
+            }
             ant.mbgenerator(overwrite: getOverwrite(), configfile: getConfigFile(), verbose: getVerbose())
         }
     }

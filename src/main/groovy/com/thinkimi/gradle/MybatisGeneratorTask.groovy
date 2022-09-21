@@ -3,6 +3,7 @@ package com.thinkimi.gradle
 import org.gradle.api.file.FileCollection
 import org.gradle.api.internal.ConventionTask
 import org.gradle.api.internal.project.IsolatedAntBuilder
+import org.gradle.api.provider.MapProperty
 import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 
@@ -25,7 +26,7 @@ class MybatisGeneratorTask extends ConventionTask {
     @Internal
     def targetDir
     @Internal
-    def mybatisProperties
+    MapProperty<String, String> mybatisProperties
     @Internal
     FileCollection mybatisGeneratorClasspath
 
@@ -35,12 +36,12 @@ class MybatisGeneratorTask extends ConventionTask {
             ant.taskdef(name: 'mbgenerator', classname: 'org.mybatis.generator.ant.GeneratorAntTask')
 
             ant.properties['generated.source.dir'] = getTargetDir()
-            getMybatisProperties().each { key, val ->
+            getMybatisProperties().get().each { key, val ->
                 ant.project.setProperty(key, val)
             }
             ant.mbgenerator(overwrite: getOverwrite(), configfile: getConfigFile(), verbose: getVerbose()) {
                 propertyset {
-                    getMybatisProperties().each { key, val ->
+                    getMybatisProperties().get().each { key, val ->
                         propertyref(name: key)
                     }
                 }

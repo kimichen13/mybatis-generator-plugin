@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.thinkimi.gradle'
-version '2.4'
+version '2.4.1'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'

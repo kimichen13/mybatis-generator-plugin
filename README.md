@@ -24,7 +24,7 @@ In your ```build.gradle``` file, add following plugin in two ways:
 
 ``` groovy
 plugins {
-  id "com.thinkimi.gradle.MybatisGenerator" version "2.4"
+  id "com.thinkimi.gradle.MybatisGenerator" version "2.4.1"
 }
 ```
 
@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.4"
+    classpath "gradle.plugin.com.thinkimi.gradle:mybatis-generator-plugin:2.4.1"
   }
 }
 

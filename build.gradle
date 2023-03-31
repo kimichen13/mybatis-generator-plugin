@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'com.thinkimi.gradle'
-version '2.4.1'
+version '2.4.2-SNAPSHOT'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
@@ -14,6 +14,11 @@ apply plugin: "com.gradle.plugin-publish"
 
 repositories {
     mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
 dependencies {
@@ -43,12 +48,12 @@ gradlePlugin.testSourceSets(sourceSets.functionalTest)
 configurations.functionalTestImplementation.extendsFrom(configurations.testImplementation)
 
 // Add a task to run the functional tests
-task functionalTest(type: Test) {
+tasks.register('functionalTest', Test) {
     testClassesDirs = sourceSets.functionalTest.output.classesDirs
     classpath = sourceSets.functionalTest.runtimeClasspath
 }
 
-tasks.withType(Test) {
+tasks.withType(Test).configureEach {
     useJUnitPlatform()
 //    jvmArgs '--enable-preview'
 }

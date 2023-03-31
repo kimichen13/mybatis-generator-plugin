@@ -1,5 +1,6 @@
 package com.thinkimi.gradle
 
+
 import org.gradle.testfixtures.ProjectBuilder
 import spock.lang.Specification
 
@@ -16,7 +17,7 @@ class MybatisGeneratorPluginTest extends Specification {
         project.pluginManager.apply("com.thinkimi.gradle.MybatisGenerator")
 
         then:
-        project.tasks.findByName("mbGenerator") instanceof MybatisGeneratorTask
+        project.tasks.find { ("mbGenerator" == it.name) } instanceof MybatisGeneratorTask
 
         expect:
         true

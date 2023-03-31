@@ -1,10 +1,10 @@
-package com.thinkimi.gradle
+package com.qqviaja.gradle
 
 import org.gradle.api.Plugin
 import org.gradle.api.internal.project.ProjectInternal
 
 /**
- * Created by Maomao Chen on 2/4/16.
+ * Created by Kimi Chen on 2/4/16.
  */
 class MybatisGeneratorPlugin implements Plugin<ProjectInternal> {
 

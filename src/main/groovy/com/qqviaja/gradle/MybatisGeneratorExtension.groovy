@@ -1,4 +1,4 @@
-package com.thinkimi.gradle
+package com.qqviaja.gradle
 
 import groovy.transform.ToString
 import org.gradle.api.model.ObjectFactory
@@ -7,7 +7,7 @@ import org.gradle.api.provider.MapProperty
 import javax.inject.Inject
 
 /**
- * Created by Maomao Chen on 2/4/16.
+ * Created by Kimi Chen on 2/4/16.
  */
 @ToString(includeNames = true)
 class MybatisGeneratorExtension {

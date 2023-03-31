@@ -1,4 +1,4 @@
-package com.thinkimi.gradle
+package com.qqviaja.gradle
 
 import org.gradle.testkit.runner.GradleRunner
 import org.testcontainers.containers.DockerComposeContainer
@@ -8,7 +8,9 @@ import spock.lang.Specification
 /**
  *
  * @author Kimi Chen
- * @since 2020/3/19, Thu  *     */
+ * @since 2020/3/19, Thu  *
+ *
+ * */
 @Testcontainers
 class MybatisGeneratorPluginFunctionTest extends Specification {
 
@@ -33,13 +35,13 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
         autogen.mkdirs()
         new File(autogen, "generatorConfig.xml") << config.text
 
-        new File(projectDir, "src/main/java/com/thinkimi/gradle").mkdirs()
+        new File(projectDir, "src/main/java/com/qqviaja/gradle").mkdirs()
 
 
         new File(projectDir, "settings.gradle") << ""
         new File(projectDir, "build.gradle") << """
             plugins {
-                id('com.thinkimi.gradle.MybatisGenerator')
+                id('com.qqviaja.gradle.MybatisGenerator')
                 id('java')
             }
             
@@ -65,7 +67,7 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
                 
                 mybatisProperties = ['jdbcUrl'        : 'jdbc:postgresql://localhost:5435/postgres',
                              'jdbcDriverClass': 'org.postgresql.Driver',
-                             'jdbcUsername'   : 'thinkimi',
+                             'jdbcUsername'   : 'qqviaja',
                              'jdbcPassword'   : '123456',
                 ]
             }
@@ -80,9 +82,9 @@ class MybatisGeneratorPluginFunctionTest extends Specification {
         runner.build()
 
         then:
-        new File(projectDir, "src/main/java/com/thinkimi/gradle/dao/CustomerMapper.java").exists()
-        new File(projectDir, "src/main/java/com/thinkimi/gradle/model/Customer.java").exists()
-        new File(projectDir, "src/main/java/com/thinkimi/gradle/model/CustomerExample.java").exists()
+        new File(projectDir, "src/main/java/com/qqviaja/gradle/dao/CustomerMapper.java").exists()
+        new File(projectDir, "src/main/java/com/qqviaja/gradle/model/Customer.java").exists()
+        new File(projectDir, "src/main/java/com/qqviaja/gradle/model/CustomerExample.java").exists()
         new File(projectDir, "src/main/resources/mapper/CustomerMapper.xml").exists()
     }
 

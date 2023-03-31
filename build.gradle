@@ -4,8 +4,8 @@ plugins {
     id 'groovy'
 }
 
-group 'com.thinkimi.gradle'
-version '2.4.2-SNAPSHOT'
+group 'com.qqviaja.gradle'
+version '2.5'
 description "Mybatis Gradle Generator Plugin"
 
 apply plugin: 'groovy'
@@ -33,8 +33,8 @@ gradlePlugin {
     // Define the plugin
     plugins {
         MybatisGenerator {
-            id = 'com.thinkimi.gradle.MybatisGenerator'
-            implementationClass = 'com.thinkimi.gradle.MybatisGeneratorPlugin'
+            id = 'com.qqviaja.gradle.MybatisGenerator'
+            implementationClass = 'com.qqviaja.gradle.MybatisGeneratorPlugin'
         }
     }
 }

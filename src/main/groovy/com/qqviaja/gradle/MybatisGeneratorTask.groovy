@@ -1,4 +1,4 @@
-package com.thinkimi.gradle
+package com.qqviaja.gradle
 
 import org.gradle.api.file.FileCollection
 import org.gradle.api.internal.ConventionTask
@@ -8,7 +8,7 @@ import org.gradle.api.tasks.Internal
 import org.gradle.api.tasks.TaskAction
 
 /**
- * Created by Maomao Chen on 2/4/16.
+ * Created by Kimi Chen on 2/4/16.
  */
 class MybatisGeneratorTask extends ConventionTask {
 

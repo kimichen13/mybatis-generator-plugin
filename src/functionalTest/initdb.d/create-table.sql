@@ -6,4 +6,4 @@ CREATE TABLE Customer (
 );
 
 insert into Customer(id, name) values (1, 'kimi');
-insert into Customer(id, name) values (2, 'think');
+insert into Customer(id, name) values (2, 'john');

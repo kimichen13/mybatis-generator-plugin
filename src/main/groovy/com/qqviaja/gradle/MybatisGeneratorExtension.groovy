@@ -26,4 +26,5 @@ class MybatisGeneratorExtension {
         this.targetDir = targetDir
         this.mybatisProperties = factory.mapProperty(String.class, String.class)
     }
+
 }

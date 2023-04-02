@@ -37,7 +37,7 @@ buildscript {
     }
   }
   dependencies {
-    classpath "gradle.plugin.com.qqviaja.gradle:mybatis-generator-plugin:2.4.1"
+    classpath "gradle.plugin.com.qqviaja.gradle:mybatis-generator-plugin:2.5"
   }
 }
 

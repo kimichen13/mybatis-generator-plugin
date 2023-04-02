@@ -75,6 +75,13 @@ pluginBundle {
             displayName = 'Mybatis Gradle Generator Plugin'
         }
     }
+
+    mavenCoordinates {
+        groupId = "com.qqviaja.gradle"
+        artifactId = "mybatis-generator-plugin"
+        version = "2.5"
+    }
+
 }
 
 

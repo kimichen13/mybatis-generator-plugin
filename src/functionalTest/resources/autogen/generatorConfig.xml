@@ -21,7 +21,7 @@
                 password="${jdbcPassword}">
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.thinkimi.gradle.model" targetProject="build/functionalTest/src/main/java">
+        <javaModelGenerator targetPackage="com.qqviaja.gradle.model" targetProject="build/functionalTest/src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -30,7 +30,7 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.thinkimi.gradle.dao" type="XMLMAPPER" targetProject="build/functionalTest/src/main/java">
+        <javaClientGenerator targetPackage="com.qqviaja.gradle.dao" type="XMLMAPPER" targetProject="build/functionalTest/src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 

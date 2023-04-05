@@ -71,11 +71,12 @@ mybatisGenerator {
 Properties set under `mybatisProperties` can be referenced with placeholder syntax in the `configFile`.
 
 ```groovy
-        mybatisProperties = ['jdbcUrl'        : 'jdbc:postgresql:.....',
-                             'jdbcDriverClass': 'org.postgresql.Driver',
-                             'jdbcUsername'   : '...',
-                             'jdbcPassword'   : '...',
-        ]
+mybatisProperties = [
+        'jdbcUrl'        : 'jdbc:postgresql:.....',
+        'jdbcDriverClass': 'org.postgresql.Driver',
+        'jdbcUsername'   : '...',
+        'jdbcPassword'   : '...',
+]
 
 ```
 
